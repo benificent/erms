@@ -7,7 +7,7 @@ if(isset($_POST['login']))
   {
     $Email=$_POST['Email'];
     $Password=$_POST['Password'];
-    $query=mysqli_query($con,"select ID from employeedetail where  EmpEmail='$Email' && EmpPassword='$Password' ");
+    $query=mysqli_query($link,"select ID from employeedetail where  EmpEmail='$Email' && EmpPassword='$Password' ");
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['uid']=$ret['ID'];
@@ -80,15 +80,17 @@ if(isset($_POST['login']))
                     <p> <input type="submit" class="btn btn-primary btn-user btn-block" name="login" value="login"></p>
 
                     <hr>
-                  
+
                   </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="small" href="forgetpassword.php">Forgot Password?</a>
-                  </div>
-                  <div class="text-center">
-                    <a class="small" href="registererms.php">Create an Account!</a>
-                  </div>
+                    <hr>
+                    <div class="text-center">
+                        <a class="small" href="forgetpassword.php">Forgot Password?</a>
+                    </div>
+                    <div class="text-center">
+                        <a class="small" href="registererms.php">Create an Account!</a>
+                        <hr>
+                        <p> <a href="index.php"><button class="btn btn-success">GO BACK</button></a></p>
+                    </div>
                 </div>
               </div>
             </div>

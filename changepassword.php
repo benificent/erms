@@ -11,10 +11,10 @@ if(isset($_POST['submit']))
 $empid=$_SESSION['uid'];
 $cpassword=$_POST['currentpassword'];
 $newpassword=$_POST['newpassword'];
-$query=mysqli_query($con,"select ID from employeedetail where ID='$empid' and 	EmpPassword='$cpassword'");
+$query=mysqli_query($link,"select ID from employeedetail where ID='$empid' and 	EmpPassword='$cpassword'");
 $row=mysqli_fetch_array($query);
 if($row>0){
-$ret=mysqli_query($con,"update employeedetail set EmpPassword='$newpassword' where ID='$empid'");
+$ret=mysqli_query($link,"update employeedetail set EmpPassword='$newpassword' where ID='$empid'");
 $msg= "Your password successully changed"; 
 } else {
 
@@ -93,7 +93,7 @@ return true;
 <form name="changepassword" class="user" method="post" onsubmit="return checkpass();">
   <?php
 $cid=$_SESSION['uid'];
-$ret=mysqli_query($con,"select * from employeedetail where ID='$cid'");
+$ret=mysqli_query($link,"select * from employeedetail where ID='$cid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

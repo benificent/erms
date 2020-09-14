@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
     $emp3ctc=$_POST['emp3ctc'];
     $emp3wd=$_POST['emp3workduration'];
     
-     $query=mysqli_query($con, "update empexpireince set Employer1Name='$emp1name',  Employer1Designation ='$emp1des', Employer1CTC ='$emp1ctc', Employer1WorkDuration='$emp1wd', Employer2Name='$emp2name',  Employer2Designation ='$emp2des', Employer2CTC ='$emp2ctc', Employer2WorkDuration='$emp2wd', Employer3Name='$emp3name',  Employer3Designation ='$emp3des', Employer3CTC ='$emp3ctc', Employer3WorkDuration='$emp3wd'  where EmpID='$eid'");
+     $query=mysqli_query($link, "update empexpireince set Employer1Name='$emp1name',  Employer1Designation ='$emp1des', Employer1CTC ='$emp1ctc', Employer1WorkDuration='$emp1wd', Employer2Name='$emp2name',  Employer2Designation ='$emp2des', Employer2CTC ='$emp2ctc', Employer2WorkDuration='$emp2wd', Employer3Name='$emp3name',  Employer3Designation ='$emp3des', Employer3CTC ='$emp3ctc', Employer3WorkDuration='$emp3wd'  where EmpID='$eid'");
     if ($query) {
     $msg="ABMTC Alumni Expirence has been updated.";
   }
@@ -89,7 +89,7 @@ if(isset($_POST['submit']))
 <form class="user" method="post" action="">
   <?php
  $aid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from empexpireince where EmpID='$aid'");
+$ret=mysqli_query($link,"select * from empexpireince where EmpID='$aid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

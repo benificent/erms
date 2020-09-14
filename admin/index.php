@@ -6,7 +6,7 @@ if(isset($_POST['login']))
   {
     $uname=$_POST['username'];
     $Password=$_POST['Password'];
-    $query=mysqli_query($con,"select ID from tbladmin where  AdminuserName='$uname' && Password='$Password' ");
+    $query=mysqli_query($link,"select ID from tbladmin where  AdminuserName='$uname' && Password='$Password' ");
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['aid']=$ret['ID'];
@@ -73,8 +73,9 @@ if(isset($_POST['login']))
                   
                     <p> <input type="submit" class="btn btn-primary btn-user btn-block" name="login" value="login"></p>
 
-                    <hr>
-                  
+                      <hr>
+                      <p class="text-center"> <a href="../"><button type="button" class="btn btn-success">GO BACK</button></a></p>
+
                   </form>
                   <hr>
                  

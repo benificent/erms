@@ -28,7 +28,7 @@ if(isset($_POST['submit']))
     $yophsc=$_POST['yophsc'];
     $pihsc=$_POST['pihsc'];
     
-     $query=mysqli_query($con, "update empeducation set CoursePG='$coursepg', SchoolCollegePG='$schoolclgpg', YearPassingPG='$yoppg',  PercentagePG= '$pipg', CourseGra='$coursegra',  SchoolCollegeGra='$schoolclggra', YearPassingGra= '$yopgra', PercentageGra='$pigra', CourseSSC='$coursessc', SchoolCollegeSSC='$schoolclgssc', YearPassingSSC= '$yopssc', PercentageSSC= '$pissc', CourseHSC='$coursehsc', SchoolCollegeHSC='$schoolclghsc', YearPassingHSC='$yophsc', PercentageHSC='$pihsc' where EmpID='$eid'");
+     $query=mysqli_query($link, "update empeducation set CoursePG='$coursepg', SchoolCollegePG='$schoolclgpg', YearPassingPG='$yoppg',  PercentagePG= '$pipg', CourseGra='$coursegra',  SchoolCollegeGra='$schoolclggra', YearPassingGra= '$yopgra', PercentageGra='$pigra', CourseSSC='$coursessc', SchoolCollegeSSC='$schoolclgssc', YearPassingSSC= '$yopssc', PercentageSSC= '$pissc', CourseHSC='$coursehsc', SchoolCollegeHSC='$schoolclghsc', YearPassingHSC='$yophsc', PercentageHSC='$pihsc' where EmpID='$eid'");
     if ($query) {
     $msg="ABMTC Alumni Education data has been updated succeesfully.";
   }
@@ -93,7 +93,7 @@ if(isset($_POST['submit']))
 <form class="user" method="post" action="">
    <?php
  $aid=$_GET['editid'];
-$ret=mysqli_query($con,"select * from empeducation where EmpID='$aid'");
+$ret=mysqli_query($link,"select * from empeducation where EmpID='$aid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

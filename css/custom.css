@@ -1,3 +1,8 @@
+@media (max-width: 576px) {
+    #accordionSidebar {
+        display: none;
+    }
+}
 
 .fb-profile img.fb-image-lg{
     z-index: 0;

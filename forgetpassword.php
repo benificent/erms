@@ -8,7 +8,7 @@ if(isset($_POST['submit']))
     $empid=$_POST['empid'];
     $Email=$_POST['Email'];
 
-        $query=mysqli_query($con,"select ID from employeedetail where  EmpEmail='$Email' and EmpCode='$empid' ");
+        $query=mysqli_query($link,"select ID from employeedetail where  EmpEmail='$Email' and EmpCode='$empid' ");
     $ret=mysqli_fetch_array($query);
     if($ret>0){
       $_SESSION['empid']=$empid;

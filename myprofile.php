@@ -20,7 +20,7 @@ if(isset($_POST['submit']))
     $EmpContactNo=$_POST['EmpContactNo'];
     $gender=$_POST['gender'];
     $empjdate=$_POST['EmpJoingdate'];
-     $query=mysqli_query($con, "update employeedetail set EmpFname='$FName',  EmpLName='$LName', EmpCode='$empcode', EmpDept='$EmpDept', EmpDesignation='$EmpDesignation', EmpContactNo='$EmpContactNo', EmpGender='$gender',EmpJoingdate='$empjdate' where ID='$eid'");
+     $query=mysqli_query($link, "update employeedetail set EmpFname='$FName',  EmpLName='$LName', EmpCode='$empcode', EmpDept='$EmpDept', EmpDesignation='$EmpDesignation', EmpContactNo='$EmpContactNo', EmpGender='$gender',EmpJoingdate='$empjdate' where ID='$eid'");
     if ($query) {
     $msg="Your profile has been updated.";
   }
@@ -85,7 +85,7 @@ if(isset($_POST['submit']))
 <form class="user" method="post" action="">
   <?php
 $eid=$_SESSION['uid'];
-$ret=mysqli_query($con,"select * from employeedetail where ID='$eid'");
+$ret=mysqli_query($link,"select * from employeedetail where ID='$eid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

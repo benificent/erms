@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
     $email=$_SESSION['email'];
     $empid=$_SESSION['empid'];
     $password=$_POST['newpassword'];
-    $query=mysqli_query($con,"update employeedetail set EmpPassword='$password'  where  EmpEmail='$email' && EmpCode='$empid' ");
+    $query=mysqli_query($link,"update employeedetail set EmpPassword='$password'  where  EmpEmail='$email' && EmpCode='$empid' ");
    if($query)
    {
 echo "<script>alert('Password successfully changed');</script>";

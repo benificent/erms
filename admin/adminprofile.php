@@ -14,7 +14,7 @@ if(isset($_POST['submit']))
     $AName=$_POST['AdminName'];
   
   
-     $query=mysqli_query($con, "update tbladmin set AdminName ='$AName' where ID='$adminid'");
+     $query=mysqli_query($link, "update tbladmin set AdminName ='$AName' where ID='$adminid'");
     if ($query) {
     $msg="Admin profile has been updated.";
   }
@@ -79,7 +79,7 @@ if(isset($_POST['submit']))
 <form class="user" method="post" action="">
   <?php
 $adminid=$_SESSION['aid'];
-$ret=mysqli_query($con,"select * from tbladmin where ID='$adminid'");
+$ret=mysqli_query($link,"select * from tbladmin where ID='$adminid'");
 $cnt=1;
 while ($row=mysqli_fetch_array($ret)) {
 

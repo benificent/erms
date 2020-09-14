@@ -38,7 +38,7 @@
 
                       <?php
 $adminid=$_SESSION['aid'];
-$ret=mysqli_query($con,"select AdminName from tbladmin where ID='$adminid'");
+$ret=mysqli_query($link,"select AdminName from tbladmin where ID='$adminid'");
 $row=mysqli_fetch_array($ret);
 $name=$row['AdminName'];
 

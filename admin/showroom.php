@@ -3,150 +3,152 @@ session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
 //error_reporting(0);
-if (strlen($_SESSION['aid']==0)) {
-  header('location:logout.php');
-  } else{
+if (strlen($_SESSION['aid'] == 0)) {
+    header('location:logout.php');
+} else {
 
 
-if(isset($_POST['submit']))
-  {
-    $eid=$_SESSION['uid'];
-      $emp1name=$_POST['emp1name'];
-    $emp1des=$_POST['emp1des'];
-    $emp1ctc=$_POST['emp1ctc'];
-    $emp1wd=$_POST['emp1workduration'];
-    $emp2name=$_POST['emp2name'];
-    $emp2des=$_POST['emp2des'];
-    $emp2ctc=$_POST['emp2ctc'];
-    $emp2wd=$_POST['emp2workduration'];
-    $emp3name=$_POST['emp3name'];
-    $emp3des=$_POST['emp3des'];
-    $emp3ctc=$_POST['emp3ctc'];
-    $emp3wd=$_POST['emp3workduration'];
-    
-     $query=mysqli_query($con, "insert into empexpireince ( EmpID,Employer1Name, Employer1Designation, Employer1CTC,  Employer1WorkDuration, Employer2Name,  Employer2Designation, Employer2CTC, Employer2WorkDuration, Employer3Name, Employer3Designation, Employer3CTC, Employer3WorkDuration) value('$eid','$emp1name', '$emp1des', '$emp1ctc', '$emp1wd', '$emp2name', '$emp2des', '$emp2ctc', '$emp2wd', '$emp3name', '$emp3des', '$emp3ctc', '$emp3wd' )");
-    if ($query) {
-    $msg="Your Expirence data has been submitted successfully.";
-  }
-  else
-    {
-      $msg="Something Went Wrong. Please try again.";
+    if (isset($_POST['submit'])) {
+        $eid = $_SESSION['uid'];
+        $emp1name = $_POST['emp1name'];
+        $emp1des = $_POST['emp1des'];
+        $emp1ctc = $_POST['emp1ctc'];
+        $emp1wd = $_POST['emp1workduration'];
+        $emp2name = $_POST['emp2name'];
+        $emp2des = $_POST['emp2des'];
+        $emp2ctc = $_POST['emp2ctc'];
+        $emp2wd = $_POST['emp2workduration'];
+        $emp3name = $_POST['emp3name'];
+        $emp3des = $_POST['emp3des'];
+        $emp3ctc = $_POST['emp3ctc'];
+        $emp3wd = $_POST['emp3workduration'];
+
+        $query = mysqli_query($link, "insert into empexpireince ( EmpID,Employer1Name, Employer1Designation, Employer1CTC,  Employer1WorkDuration, Employer2Name,  Employer2Designation, Employer2CTC, Employer2WorkDuration, Employer3Name, Employer3Designation, Employer3CTC, Employer3WorkDuration) value('$eid','$emp1name', '$emp1des', '$emp1ctc', '$emp1wd', '$emp2name', '$emp2des', '$emp2ctc', '$emp2wd', '$emp3name', '$emp3des', '$emp3ctc', '$emp3wd' )");
+        if ($query) {
+            $msg = "Your Expirence data has been submitted successfully.";
+        } else {
+            $msg = "Something Went Wrong. Please try again.";
+        }
     }
-  }
-  ?>
+    ?>
 
-<!DOCTYPE html>
-<html lang="en">
+    <!DOCTYPE html>
+    <html lang="en">
 
-<head>
+    <head>
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-  <title>Alumni Details</title>
+        <title>Alumni Details</title>
 
-  <!-- Custom fonts for this template-->
-  <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <!-- Custom fonts for this template-->
+        <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+              rel="stylesheet">
 
-  <!-- Custom styles for this template-->
-  <link href="../css/sb-admin-2.min.css" rel="stylesheet">
-  <link href="../css/custom.css" rel="stylesheet">
+        <!-- Custom styles for this template-->
+        <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+        <link href="../css/custom.css" rel="stylesheet">
 
-</head>
+    </head>
 
-<body id="page-top">
+    <body id="page-top">
 
-  <!-- Page Wrapper -->
-  <div id="wrapper">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
 
-    <!-- Sidebar -->
-  <?php include_once('includes/sidebar.php')?>
-    <!-- End of Sidebar -->
+        <!-- Sidebar -->
+        <?php include_once('includes/sidebar.php') ?>
+        <!-- End of Sidebar -->
 
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Main Content -->
-      <div id="content">
+            <!-- Main Content -->
+            <div id="content">
 
-        <!-- Topbar -->
-<!--         --><?php //include_once('includes/header.php')?>
-        <!-- End of Topbar -->
+                <!-- Topbar -->
+                <!--         --><?php //include_once('includes/header.php')?>
+                <!-- End of Topbar -->
 
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
 
 
-<p style="font-size:16px; color:red" align="center"> <?php if($msg){
-    echo $msg;
-  }  ?> </p>
+                    <div class="row justify-content-md-center">
+                        <div class="col-lg-8 col-sm-12">
+                            <p style="font-size:16px; color:red" align="center"> <?php if ($msg) {
+                                    echo $msg;
+                                } ?> </p>
 
-            <div class="fb-profile">
-                <img align="left" class="fb-image-lg" src="./img/flc.jpg" alt="Profile image example"/>
-                <img align="left" class="fb-image-profile thumbnail" src="http://lorempixel.com/180/180/people/9/" alt="Profile image example"/>
-                <div class="fb-profile-text">
-                    <blockquote class="blockquote">
-                        <h1>Bishop Joshua Dag Heward-Mills</h1>
-                        <h3> - Resident Pastor, First Love Centre, Accra, Ghana <i class="fas fa-church"></i></h3>
-                    </blockquote>
-                    <h4><i class="fas fa-map-marker"></i> 2025 M Street, Northwest, Washington</h4>
-                    <h4><i class="fas fa-globe"></i> Ghanaian</h4>
-                    <h4><i class="fas fa-heart"></i> Married, 2 Children</h4>
+                            <div class="fb-profile">
+                                <img align="left" class="fb-image-lg" src="./img/flc.jpg" alt="Profile image example"/>
+                                <img align="left" class="fb-image-profile thumbnail"
+                                     src="http://lorempixel.com/180/180/people/9/" alt="Profile image example"/>
+                                <div class="fb-profile-text">
+                                    <blockquote class="blockquote">
+                                        <h1>Bishop Joshua Dag Heward-Mills</h1>
+                                        <h3> - Resident Pastor, First Love Centre, Accra, Ghana <i
+                                                    class="fas fa-church"></i></h3>
+                                    </blockquote>
+                                    <h4><i class="fas fa-map-marker"></i> 2025 M Street, Northwest, Washington</h4>
+                                    <h4><i class="fas fa-globe"></i> Ghanaian</h4>
+                                    <h4><i class="fas fa-heart"></i> Married, 2 Children</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                 </div>
+                <!-- /.container-fluid -->
+
             </div>
+            <!-- End of Main Content -->
 
-
+            <!-- Footer -->
+            <!--   --><?php //include_once('includes/footer.php');?>
+            <!-- End of Footer -->
 
         </div>
-        <!-- /.container-fluid -->
-
-      </div>
-      <!-- End of Main Content -->
-
-      <!-- Footer -->
-<!--   --><?php //include_once('includes/footer.php');?>
-      <!-- End of Footer -->
+        <!-- End of Content Wrapper -->
 
     </div>
-    <!-- End of Content Wrapper -->
+    <!-- End of Page Wrapper -->
 
-  </div>
-  <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
 
-  <!-- Scroll to Top Button-->
-  <a class="scroll-to-top rounded" href="#page-top">
-    <i class="fas fa-angle-up"></i>
-  </a>
 
-  
+    <!-- Bootstrap core JavaScript-->
+    <script src="../vendor/jquery/jquery.min.js"></script>
+    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Bootstrap core JavaScript-->
-  <script src="../vendor/jquery/jquery.min.js"></script>
-  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 
-  <!-- Core plugin JavaScript-->
-  <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../js/sb-admin-2.min.js"></script>
 
-  <!-- Custom scripts for all pages-->
-  <script src="../js/sb-admin-2.min.js"></script>
-  
-  <!-- Page level plugins -->
-  <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <!-- Page level plugins -->
+    <script src="../vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
-  <script src="../js/demo/datatables-demo.js"></script>
-  <script type="text/javascript">
-      $(function (){
-          console.log("I'm here!!")
-          $("#accordionSidebar").addClass("toggled");
-      });
-  </script>
-</body>
+    <!-- Page level custom scripts -->
+    <script src="../js/demo/datatables-demo.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            console.log("I'm here!!")
+            $("#accordionSidebar").addClass("toggled");
+        });
+    </script>
+    </body>
 
-</html>
-<?php }  ?>
+    </html>
+<?php } ?>

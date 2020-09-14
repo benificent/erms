@@ -28,16 +28,16 @@ require('db.php');
     if (isset($_REQUEST['name'])){
         $name = stripslashes($_REQUEST['name']);
 
-        $name = mysqli_real_escape_string($con,$name);
+        $name = mysqli_real_escape_string($link,$name);
         $email = stripslashes($_REQUEST['email']);
-        $email = mysqli_real_escape_string($con,$email);
+        $email = mysqli_real_escape_string($link,$email);
         $subject = stripslashes($_REQUEST['subject']);
-        $subject = mysqli_real_escape_string($con,$subject);
+        $subject = mysqli_real_escape_string($link,$subject);
         
         $trn_date = date("Y-m-d H:i:s");
         $query = "INSERT into `feedback` (name, email, subject, trn_date)
         VALUES ('$name', '$email', '$subject',  '$trn_date')";
-        $result = mysqli_query($con,$query);
+        $result = mysqli_query($link,$query);
         if($result){
 
             echo "<div class='form'>

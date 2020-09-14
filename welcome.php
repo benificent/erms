@@ -68,7 +68,7 @@ else {
 
                       <?php
 $empid=$_SESSION['uid'];
-$ret=mysqli_query($con,"select EmpFname,EmpLname from employeedetail where ID='$empid'");
+$ret=mysqli_query($link,"select EmpFname,EmpLname from employeedetail where ID='$empid'");
 $row=mysqli_fetch_array($ret);
 $fname=$row['EmpFname'];
 $lname=$row['EmpLname'];

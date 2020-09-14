@@ -28,7 +28,7 @@ if(isset($_POST['submit']))
     $yophsc=$_POST['yophsc'];
     $pihsc=$_POST['pihsc'];
     
-     $query=mysqli_query($con, "insert into empeducation( EmpID,CoursePG, SchoolCollegePG, YearPassingPG,  PercentagePG, CourseGra,  SchoolCollegeGra, YearPassingGra, PercentageGra, CourseSSC, SchoolCollegeSSC, YearPassingSSC, PercentageSSC, CourseHSC, SchoolCollegeHSC, YearPassingHSC, PercentageHSC) value('$eid','$coursepg', '$schoolclgpg', '$yoppg', '$pipg', '$coursegra', '$schoolclggra', '$yopgra', '$pigra', '$coursessc', '$schoolclgssc', '$yopssc', '$pissc', '$coursehsc', '$schoolclghsc', '$yophsc', '$pihsc' )");
+     $query=mysqli_query($link, "insert into empeducation( EmpID,CoursePG, SchoolCollegePG, YearPassingPG,  PercentagePG, CourseGra,  SchoolCollegeGra, YearPassingGra, PercentageGra, CourseSSC, SchoolCollegeSSC, YearPassingSSC, PercentageSSC, CourseHSC, SchoolCollegeHSC, YearPassingHSC, PercentageHSC) value('$eid','$coursepg', '$schoolclgpg', '$yoppg', '$pipg', '$coursegra', '$schoolclggra', '$yopgra', '$pigra', '$coursessc', '$schoolclgssc', '$yopssc', '$pissc', '$coursehsc', '$schoolclghsc', '$yophsc', '$pihsc' )");
     if ($query) {
     $msg="Your Education data has been submitted succeesfully.";
   }
@@ -94,7 +94,7 @@ if(isset($_POST['submit']))
 
 <?php 
 $empid=$_SESSION['uid'];
-$query=mysqli_query($con,"select * from empeducation where EmpID=$empid");
+$query=mysqli_query($link,"select * from empeducation where EmpID=$empid");
 $row=mysqli_fetch_array($query);
 if($row>0)
 {
